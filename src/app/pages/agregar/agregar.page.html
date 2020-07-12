@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="start">
+            <ion-back-button text="Volver"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{ nombreLista | placeholder:'Nueva Lista'}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- <ion-header collapse="condense">
+        <ion-toolbar color="tertiary">
+            <ion-buttons collapse="true" slot="end">
+                <ion-back-button text="Volver"></ion-back-button>
+            </ion-buttons>
+            <ion-title size="large">
+                {{ nombreLista | placeholder:'Nueva Lista'}}
+            </ion-title>
+
+        </ion-toolbar>
+    </ion-header> -->
+
+    <ion-content class="ion-padding">
+
+        <ion-card>
+
+            <ion-card-header>
+                <ion-item>
+                    <ion-label position="floating">Nombre de la lista</ion-label>
+                    <ion-input type="text" [(ngModel)]="nombreLista" name="nombreLista"></ion-input>
+                </ion-item>
+            </ion-card-header>
+
+            <ion-card-content>
+                <ion-item>
+                    <ion-label position="floating">Item:</ion-label>
+                    <ion-input (keyup.enter)="agregar()" type="text" [(ngModel)]="nombreItem" name="nombreItem"></ion-input>
+                </ion-item>
+
+                <ion-button (click)="agregar()" class="button-block">Agregar</ion-button>
+
+            </ion-card-content>
+
+        </ion-card>
+
+        <!-- Items -->
+        <ion-card *ngIf="aparecer===true">
+
+            <ion-card-header>
+                <h3>Items agregados</h3>
+            </ion-card-header>
+
+            <ion-card-content>
+                <ion-list>
+                    <ion-item *ngFor="let item of items; let i=index" color="blanco" class="contenedor">
+
+                        <ion-button color="dark" fill="clear">
+                            {{ item.nombre }}
+                        </ion-button>
+                        <ion-button (click)="eliminarItem(i)" fill="outline" item-right color="danger">
+                            <ion-icon ios="trash-outline" md="trash-sharp"></ion-icon>
+                            Borrar Item
+                        </ion-button>
+
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+
+        </ion-card>
+
+        <ion-button (click)="guardarLista()" icon-left class="button-block">
+            <ion-icon ios="add-circle-outline" md="add-circle-sharp"></ion-icon>
+            Agregar Lista
+        </ion-button>
+
+    </ion-content>
+
+
+
+</ion-content>

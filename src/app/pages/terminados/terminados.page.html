@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title class="ion-text-center" color="blanco">
+            Terminados
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- <ion-header collapse="condense">
+      <ion-toolbar color="tertiary">
+          <ion-title size="large">Lista de Pendientes</ion-title>
+      </ion-toolbar>
+  </ion-header> -->
+
+    <ion-content class="ion-padding">
+
+        <ion-card *ngFor="let lista of listaPendientes | pendientes:true ; let i=index">
+
+            <ion-item color="dark" (click)="verDetalle(lista,i)">
+                <ion-label>{{ lista.nombre }}</ion-label>
+                <ion-note>
+
+                    {{ lista.items.length }} items
+                </ion-note>
+
+            </ion-item>
+
+            <ion-list>
+
+                <!-- Con el pipe de slice:0:2 se muestra maximo 2 propiedades-->
+                <ion-item (click)="verDetalle(lista,i)" class="text-left" *ngFor="let item of lista.items | slice:0:2">
+
+                    <ion-icon *ngIf="!item.completado" ios="square-outline" md="square-sharp"></ion-icon>
+                    <ion-icon *ngIf="item.completado" ios="checkbox-outline" md="checkbox-sharp"></ion-icon>
+                    <ion-text class="relleno">{{ item.nombre }}</ion-text>
+
+                </ion-item>
+
+                <!-- Se mostrara cuando propiedades de listas sean mayores a dos-->
+                <ion-item class="text-center" *ngIf=" lista.items.length> 2">
+                    <ion-label>
+                        <ion-icon color="success" ios="arrow-down-circle-outline" md="arrow-down-circle-sharp"></ion-icon>
+                    </ion-label>
+
+                </ion-item>
+
+            </ion-list>
+
+        </ion-card>
+
+
+        <!-- fab placed to the bottom end -->
+        <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+
+          <ion-fab-button color="tertiary" (click)="irAgregar()">
+              <ion-icon ios="add-outline" md="add-sharp"></ion-icon>
+          </ion-fab-button>
+
+      </ion-fab> -->
+
+
+
+
+    </ion-content>
+
+</ion-content>

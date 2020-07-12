@@ -9,18 +9,64 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
 /* Core CSS required for Ionic components to work properly */
+
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
+
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
 @import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
+
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+:root {
+    --ion-color-blanco: #ffffff;
+    --ion-color-blanco-rgb: 255, 255, 255;
+    --ion-color-blanco-contrast: #000000;
+    --ion-color-blanco-contrast-rgb: 0, 0, 0;
+    --ion-color-blanco-shade: #e0e0e0;
+    --ion-color-blanco-tint: #ffffff;
+}
+
+.ion-color-blanco {
+    --ion-color-base: var(--ion-color-blanco);
+    --ion-color-base-rgb: var(--ion-color-blanco-rgb);
+    --ion-color-contrast: var(--ion-color-blanco-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-blanco-contrast-rgb);
+    --ion-color-shade: var(--ion-color-blanco-shade);
+    --ion-color-tint: var(--ion-color-blanco-tint);
+}
+
+ion-content {
+    --ion-background-color: #ffffff;
+}
+
+// Impedir que la letra de los botones se ponga en mayuscula automaticamente
+ion-button {
+    text-transform: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.relleno {
+    margin-left: 0.2em;
+}
+
+.tachado {
+    text-decoration: line-through;
+}
